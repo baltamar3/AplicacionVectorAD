@@ -188,6 +188,8 @@ public class Principal extends javax.swing.JFrame {
 
         double n;
         int sw, res;
+        boolean aux=true;
+        
         for (int i = 0; i < v.length; i++) {
 
             do {
@@ -200,10 +202,11 @@ public class Principal extends javax.swing.JFrame {
                     sw = 0;
                 } catch (NullPointerException e) {
                     res = JOptionPane.showConfirmDialog(this, "¿Seguro que deseas salir?", "salir", JOptionPane.YES_NO_OPTION);
-                    sw = 0;
+                    
                     if (res == 0) {
                         sw = 1;
                         i = v.length;
+                        aux=false;
                     } else {
                         sw = 0;
                     }
@@ -214,8 +217,8 @@ public class Principal extends javax.swing.JFrame {
         cmdCrear.setEnabled(false);
         cmdLlenarAutomatico.setEnabled(false);
         cmdLlenarManual.setEnabled(false);
-        cmdMostrar.setEnabled(true);
-        cmdBorrar.setEnabled(false);
+        cmdMostrar.setEnabled(aux);
+        cmdBorrar.setEnabled(true);
     }//GEN-LAST:event_cmdLlenarManualActionPerformed
 
     private void cmdMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdMostrarActionPerformed
